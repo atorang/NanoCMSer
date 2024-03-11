@@ -1,0 +1,25 @@
+Package: NanoCMSer
+Title: CMS classifier for NanoString platform
+Version: 0.0.0.9000
+Authors@R:
+  person("Arezo", "Torang", , "torang.arezo@gmail.com", role = c("aut", "cre"),
+         comment = c(ORCID = "https://orcid.org/0000-0002-7912-3964"))
+Description: NanoCMSer: A Clinically Applicable Stratification Tool for Stratification of Colorectal Cancer Samples
+License: MIT + file LICENSE
+Depends:
+  R (>= 2.10)
+Imports:
+  glmnet,
+  preprocessCore,
+  stats
+Suggests:
+  knitr,
+  rmarkdown
+VignetteBuilder:
+  knitr
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+URL: https://github.com/atorang/NanoCMSer
+BugReports: https://github.com/atorang/NanoCMSer/issues
