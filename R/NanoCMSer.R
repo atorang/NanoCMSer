@@ -135,7 +135,7 @@ perform_log2_transformation <- function(data, perform_log2) {
 # Function to handle old gene ids
 handle_old_gene_symbol<-function(data,Ens_model,gene_names,exprs_model){
   data_genes=intersect(Ens_model[,gene_names],rownames(data))
-  if(gene_names=="symbol"&(length(data_genes)<nrow(exprs_model))){
+  if(gene_names=="symbol" & (length(data_genes)<nrow(exprs_model))){
     symb=unlist(apply(Ens_model[!is.na(Ens_model$other),], 1,
                       function(x){strsplit(x[4],', ')}))
     x=intersect(rownames(data),symb)
