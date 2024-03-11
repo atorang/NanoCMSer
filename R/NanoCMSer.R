@@ -135,7 +135,7 @@ perform_log2_transformation <- function(data, perform_log2) {
 # Function to handle old gene ids
 handle_old_gene_symbol<-function(data,Ens_model,gene_names,exprs_model){
   data_genes=intersect(Ens_model[,gene_names],rownames(data))
-  if(gene_names=="symbol" & (length(data_genes)<nrow(exprs_model))){
+  if((gene_names=="symbol") & ((length(data_genes)<nrow(exprs_model)))){
     symb=unlist(apply(Ens_model[!is.na(Ens_model$other),], 1,
                       function(x){strsplit(x[4],', ')}))
     x=intersect(rownames(data),symb)
@@ -157,11 +157,11 @@ check_impute <- function(data_genes, Ens_model, gene_names, exprs_model, impute)
          or rownames of data are not set to the right value\nSetting 'gene_names' argument to 'ensembl', 'entrez' or 'symbol' may solve the problem!"
                 ,"Missing genes:\n",paste0(setdiff(Ens_model[,gene_names],data_genes), collapse = " ")))
   }
-  if(length(data_genes)<nrow(exprs_model)&impute){
+  if((length(data_genes)<nrow(exprs_model)) & (impute)){
     warning(paste0("There are some missing genes,
             the classification is less reliable with missing genes:","\n",
                    paste0( setdiff(Ens_model[,gene_names],data_genes),collapse = " ")))
-  }else if(length(data_genes)<nrow(exprs_model)&(!impute)){
+  }else if((length(data_genes)<nrow(exprs_model)) & ((!impute))){
     stop(paste0("There are missing genes in the data,
                 set 'impute=TRUE' to impute missing genes!"
                 ,"Missing genes:\n",paste0(setdiff(Ens_model[,gene_names],data_genes), collapse = " ")))
