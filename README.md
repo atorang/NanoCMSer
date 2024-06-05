@@ -14,7 +14,7 @@ To run the demo below, you need to first load the package and the dataset:
 
 ```         
 library("NanoCMSer")
-load("exprs.test")
+data("exprs.test")
 ```
 
 Now you can utilize an elastic-net model for data classification. The function takes five arguments:
